@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Tank Game Test-1</title>
+	    <link href='https://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet'>
+	    <link rel="stylesheet" href="css/style.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+  		<script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+	</head>
+	<body>
+		<audio src="audio/machine-gun.wav" class="mg-sfx"></audio>
+		<audio src="audio/heavy-gun.wav" class="hg-sfx"></audio>
+		<audio src="audio/light-gun.wav" class="lg-sfx"></audio>
+		<audio src="audio/td-gun.wav" class="tdg-sfx"></audio>
+
+		<div class="main-menu">
+			<h1>Ze Tank of Ze Blue</h1>
+			<div class="main-menu-content">
+
+				<div class="mmc-container">
+					<div class="player-stats-container">
+						<h2>Player 1</h2>
+						<p class="player-tank p1-tank">Current Tank: </p>
+						<p class="player-kills p1-kills">Total Kills: </p>
+						<p class="player-damage p1-damage">Total Damage: </p>
+					</div>
+					
+					<div class="main-menu-options">
+						<h2>Main Menu</h2>
+						<!-- <button class="mmo" onclick="startGame()">Play</button> -->
+						<button class="mmo start-singlePlayer" onClick="spStart()">Singleplayer</button>
+						<button class="mmo start-twoPlayers" onClick="tpStart()">Two-Players</button>
+						<button class="mmo">Level Select (WIP)</button>
+						<button class="mmo" onclick="tankSelection()">Tank Selection (WIP)</button>
+						<button class="mmo">Options (WIP)</button>
+					</div>
+
+					<div class="tank-selection-container">
+
+						<div class="tank-preview tank-preview-p1">
+							<!-- <img src="../images/player-tanks/playerHeavy.png"> -->
+						</div>
+
+						<div class="tank-selection tank-selection-p1">
+							<img class="arrow arrow-left arrow-left-p1" src="../images/menu-images/arrow-left.png" width="30" width="23">
+							<span class="chosen-tank chosen-tank-p1">Tank</span>
+							<img class="arrow arrow-right arrow-right-p1" src="../images/menu-images/arrow-right.png" width="30" width="23">
+						</div>
+
+						<div class="tank-preview tank-preview-p2">
+							<!-- <img src="../images/player-tanks/player2Heavy.png"> -->
+						</div>
+
+						<div class="tank-selection tank-selection-p2">
+							<img class="arrow arrow-left arrow-left-p2" src="../images/menu-images/arrow-left.png" width="30" width="23">
+							<span class="chosen-tank chosen-tank-p2">Tank</span>
+							<img class="arrow arrow-right arrow-right-p2" src="../images/menu-images/arrow-right.png" width="30" width="23">
+						</div>
+
+						<button class="mmo" onclick="backToMenu()">Back to Main Menu</button>
+
+					</div>
+
+					<div class="player-stats-container">
+						<h2>Player 2</h2>
+						<p class="player-tank p2-tank">Current Tank: </p>
+						<p class="player-kills p2-kills">Total Kills: </p>
+						<p class="player-damage p2-damage">Total Damage: </p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="pause-container">
+			<div class="pause-menu">
+				<h1>Game Paused</h1>
+				<button class="pause-options" onClick="returnToMenu()">Main Menu</button>
+				<button class="pause-options" onClick="resumeGame()">Resume</button>
+			</div>
+		</div>
+
+		<div class="ui-container">
+			<div class="ui">
+				<div class="wpn-grp-container-p1">
+					<span class="player">PLAYER1</span>
+					<img class="bullet-img p1-wpn-grp1" src="./images/wpn-grp1.png" alt="weaopn group 1">
+					<img class="bullet-img p1-wpn-grp2" src="./images/wpn-grp2.png" alt="weaopn group 2">
+					<img class="bullet-img p1-wpn-grp3" src="./images/wpn-grp3.png" alt="weaopn group 3">
+				</div>
+				<div class="wpn-grp-container-p2">
+					<span class="player">PLAYER2</span>
+					<img class="bullet-img p2-wpn-grp1" src="./images/wpn-grp1.png" alt="weaopn group 1">
+					<img class="bullet-img p2-wpn-grp2" src="./images/wpn-grp2.png" alt="weaopn group 2">
+					<img class="bullet-img p2-wpn-grp3" src="./images/wpn-grp3.png" alt="weaopn group 3">
+				</div>
+
+				<div class="pause-button-container">
+					<button class="pause-button" onclick="pauseGame()">Pause</button>
+				</div>
+
+			</div>
+		</div>			
+
+		<div class="buttons">
+			<button onclick="spawnHeavyTank()" class="spawn-heavy">Spawn Heavy Tank</button>
+			<button onclick="spawnLightTank()" class="spawn-light">Spawn Light Tank</button>
+			<button onclick="spawnEnemyTD()" class="spawn-TD">Spawn Tank Destroyer</button>
+		</div>
+		<div class="canvas-container">
+			<canvas class="game-body"></canvas>
+		</div>
+		<script src="js/main.js"></script>
+		<script src="js/main-menu.js"></script>
+		<script src="js/shoot.js"></script>
+		<script src="js/tank.js"></script>
+		<script src="js/player.js"></script>
+		<script src="js/enemy.js"></script>
+		<script src="js/levels.js"></script>
+		<script src="js/animate.js"></script>
+	</body>
+</html>
