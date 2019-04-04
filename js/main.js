@@ -30,18 +30,18 @@ const bigEnemy = new Image();
 const smallEnemy = new Image();
 const enemyTD = new Image();
 
-const playerTD_Img = "../images/player-tanks/playerTD.png";
-const player2TD_Img = "../images/player-tanks/player2TD.png";
-const playerHeavy_Img = "../images/player-tanks/playerHeavy.png";
-const player2Heavy_Img = "../images/player-tanks/player2Heavy.png";
-const playerMedium_Img = "../images/player-tanks/playerMedium.png";
-const player2Medium_Img = "../images/player-tanks/player2Medium.png";
-const playerLight_Img = "../images/player-tanks/playerLightTank.png";
-const player2Light_Img = "../images/player-tanks/player2LightTank.png";
+const playerTD_Img = "./images/player-tanks/playerTD.png";
+const player2TD_Img = "./images/player-tanks/player2TD.png";
+const playerHeavy_Img = "./images/player-tanks/playerHeavy.png";
+const player2Heavy_Img = "./images/player-tanks/player2Heavy.png";
+const playerMedium_Img = "./images/player-tanks/playerMedium.png";
+const player2Medium_Img = "./images/player-tanks/player2Medium.png";
+const playerLight_Img = "./images/player-tanks/playerLightTank.png";
+const player2Light_Img = "./images/player-tanks/player2LightTank.png";
 
-const smallTankImg = "../images/enemy_tank2.png";
-const bigTankImg = "../images/enemy_tank.png";
-const enemyTD_Img = "../images/enemy-td.png";
+const smallTankImg = "./images/enemy_tank2.png";
+const bigTankImg = "./images/enemy_tank.png";
+const enemyTD_Img = "./images/enemy-td.png";
 
 playerTD.src = playerTD_Img;
 player2TD.src = player2TD_Img;
@@ -427,7 +427,7 @@ function spawnPlayer2Light() {
 function spawnPlayerTD() {
 	players.push(new Players(
 		playerX,
-		playerTwoY,
+		playerOneY,
 		2,
 		2,
 		256,
