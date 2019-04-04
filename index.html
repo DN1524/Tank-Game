@@ -2,6 +2,7 @@
 <html>
 	<head>
 	    <meta charset="UTF-8">
+	    <!-- <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"> -->
 	    <title>Tank Game Test-1</title>
 	    <link href='https://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet'>
 	    <link rel="stylesheet" href="css/style.css">
@@ -33,7 +34,7 @@
 						<button class="mmo start-singlePlayer" onClick="spStart()">Singleplayer</button>
 						<button class="mmo start-twoPlayers" onClick="tpStart()">Two-Players</button>
 						<button class="mmo">Level Select (WIP)</button>
-						<button class="mmo" onclick="tankSelection()">Tank Selection (WIP)</button>
+						<button class="mmo" onclick="tankSelection()">Tank Selection</button>
 						<button class="mmo">Options (WIP)</button>
 					</div>
 
@@ -44,9 +45,9 @@
 						</div>
 
 						<div class="tank-selection tank-selection-p1">
-							<img class="arrow arrow-left arrow-left-p1" src="../images/menu-images/arrow-left.png" width="30" width="23">
-							<span class="chosen-tank chosen-tank-p1">Tank</span>
-							<img class="arrow arrow-right arrow-right-p1" src="../images/menu-images/arrow-right.png" width="30" width="23">
+							<img class="arrow arrow-left arrow-left-p1" src="./images/menu-images/arrow-left.png" width="30" width="23">
+							<span class="chosen-tank" id="chosen-tank-p1"></span>
+							<img class="arrow arrow-right arrow-right-p1" src="./images/menu-images/arrow-right.png" width="30" width="23">
 						</div>
 
 						<div class="tank-preview tank-preview-p2">
@@ -54,9 +55,9 @@
 						</div>
 
 						<div class="tank-selection tank-selection-p2">
-							<img class="arrow arrow-left arrow-left-p2" src="../images/menu-images/arrow-left.png" width="30" width="23">
-							<span class="chosen-tank chosen-tank-p2">Tank</span>
-							<img class="arrow arrow-right arrow-right-p2" src="../images/menu-images/arrow-right.png" width="30" width="23">
+							<img class="arrow arrow-left arrow-left-p2" src="./images/menu-images/arrow-left.png" width="30" width="23">
+							<span class="chosen-tank" id="chosen-tank-p2"></span>
+							<img class="arrow arrow-right arrow-right-p2" src="./images/menu-images/arrow-right.png" width="30" width="23">
 						</div>
 
 						<button class="mmo" onclick="backToMenu()">Back to Main Menu</button>

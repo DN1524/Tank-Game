@@ -104,6 +104,21 @@ span, p {
 	font-weight: bold;
 }
 
+.img-holders {
+	position: relative;
+	width: 350px;
+	height: 130px;
+	margin: auto;
+	/*border: solid 1px;*/
+}
+
+#tank-img-p1, #tank-img-p2 {
+	left: 22%;
+	position: absolute;
+	/*border: solid 1px;*/
+  bottom: 0;
+}
+
 .arrow {
 	padding-top: 5px;
 	/*padding: 2px;*/
