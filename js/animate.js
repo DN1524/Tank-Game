@@ -18,32 +18,32 @@
 	c.clearRect(0, 0, innerWidth, innerHeight);
 
 
-	// First attempt on making a level system... Will improve in the future.
-	if(level == 1 && wave == 1 && enemies.length === 0 && players.length !== 0) {
-		spawnEnemies(3, 0, 0);
-		// wave += 1;
-		nextWaveOrLevel();
-	}
-	if(level == 1 && wave == 2 && enemies.length === 0 && players.length !== 0) {
-		spawnEnemies(2, 1, 0);
-		// wave += 1;
-		nextWaveOrLevel();
-	}
-	if(level == 1 && wave == 3 && enemies.length === 0 && players.length !== 0) {
-		spawnEnemies(2, 2, 0);
-		// wave += 1;
-		nextWaveOrLevel();
-	}
-	if(level == 1 && wave == 4 && enemies.length === 0 && players.length !== 0) {
-		spawnEnemies(2, 0, 1);
-		// wave += 1;
-		nextWaveOrLevel();
-	}
-	if(level == 1 && wave == 5 && enemies.length === 0 && players.length !== 0) {
-		spawnEnemies(3, 1, 1);
-		// wave += 1;
-		nextWaveOrLevel();
-	}
+	// // First attempt on making a level system... Will improve in the future.
+	// if(level == 1 && wave == 1 && enemies.length === 0 && players.length !== 0) {
+	// 	spawnEnemies(3, 0, 0);
+	// 	// wave += 1;
+	// 	nextWaveOrLevel();
+	// }
+	// if(level == 1 && wave == 2 && enemies.length === 0 && players.length !== 0) {
+	// 	spawnEnemies(2, 1, 0);
+	// 	// wave += 1;
+	// 	nextWaveOrLevel();
+	// }
+	// if(level == 1 && wave == 3 && enemies.length === 0 && players.length !== 0) {
+	// 	spawnEnemies(2, 2, 0);
+	// 	// wave += 1;
+	// 	nextWaveOrLevel();
+	// }
+	// if(level == 1 && wave == 4 && enemies.length === 0 && players.length !== 0) {
+	// 	spawnEnemies(2, 0, 1);
+	// 	// wave += 1;
+	// 	nextWaveOrLevel();
+	// }
+	// if(level == 1 && wave == 5 && enemies.length === 0 && players.length !== 0) {
+	// 	spawnEnemies(3, 1, 1);
+	// 	// wave += 1;
+	// 	nextWaveOrLevel();
+	// }
 	
 	for(let i = 0; i < players.length; i++) {
 		players[i].update();
@@ -51,6 +51,14 @@
 
 	for(let i = 0; i < enemies.length; i++) {
 		enemies[i].update();
+	}
+
+	for(let i = 0; i < pickups.length; i++) {
+		pickups[i].update();
+	}	
+
+	for(let i = 0; i < assistVehicles.length; i++) {
+		assistVehicles[i].update();
 	}
 
 	function drawShell(array) {
@@ -99,6 +107,8 @@
 		const dps = enemy.dps;
 
 		giveShellCollision(esa, dps, players);
+		giveShellCollision(esa, dps, assistVehicles);
+		giveShellCollision(esa, dps, pickups);
 	})
 })();
 
