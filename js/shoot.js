@@ -272,14 +272,15 @@ function enemyLightShoot2(array, tank) {
 // 	let mouseX = e.clientX;
 // 	let mouseY = e.clientY;
 
-// 	console.log(Math.floor(Math.hypot(mouseX - (tank1.x + tank1.w + 50), mouseY - (tank1.y + tank1.h / 2.15))))
+// 	// console.log(Math.floor(Math.hypot(mouseX - (tank1.x + tank1.w + 50), mouseY - (tank1.y + tank1.h / 2.15))))
 
 // 	// shellsArray1[0].x = mouseX;
 // 	// shellsArray1[0].y = mouseY;
 
 // 	// shootMainGun();
 
-// 	// console.log(mouseX, mouseY);
+// 	console.log(mouseX, mouseY);
+// 	console.log("What?")
 // })
 
 // ======================= TESTING LOOPING THROUGH ARRAYS WITHIN ARRAYS ==================
