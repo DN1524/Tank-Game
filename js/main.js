@@ -30,6 +30,11 @@ const bigEnemy = new Image();
 const smallEnemy = new Image();
 const enemyTD = new Image();
 
+const halfTrack = new Image();
+const halfTrack2 = new Image();
+
+const repairPickup = new Image();
+
 const playerTD_Img = "./images/player-tanks/playerTD.png";
 const player2TD_Img = "./images/player-tanks/player2TD.png";
 const playerHeavy_Img = "./images/player-tanks/playerHeavy.png";
@@ -42,6 +47,11 @@ const player2Light_Img = "./images/player-tanks/player2LightTank.png";
 const smallTankImg = "./images/enemy_tank2.png";
 const bigTankImg = "./images/enemy_tank.png";
 const enemyTD_Img = "./images/enemy-td.png";
+
+const halfTrack_Img = "./images/assist-vehicles/half-track.png"
+const halfTrack2_Img = "./images/assist-vehicles/half-track2.png"
+
+const repairPickup_Img = "./images/pickups/repair-pickup.png"
 
 playerTD.src = playerTD_Img;
 player2TD.src = player2TD_Img;
@@ -56,6 +66,10 @@ bigEnemy.src = bigTankImg;
 smallEnemy.src = smallTankImg;
 enemyTD.src = enemyTD_Img;
 
+halfTrack.src = halfTrack_Img;
+halfTrack2.src = halfTrack2_Img;
+
+repairPickup.src = repairPickup_Img;
 
 // ********************* SFX *******************
 const mgSfx = document.querySelector(".mg-sfx");
@@ -79,6 +93,8 @@ const shoot = 32; // spacebar
 
 let players = [];
 let enemies = [];
+let assistVehicles = [];
+let pickups = [];
 
 const tankOption = $(".tank-option-text-p1");
 // let selectedTank;
@@ -106,6 +122,8 @@ function resumeGame() {
 function returnToMenu() {
 	players = [];
 	enemies = [];
+	assistVehicles = [];
+	pickups = [];
 	playerShellsArray = [];
 	enemyShellsArray = [];
 	machineGunArray = [];
@@ -212,6 +230,19 @@ function randomSpawnX() {
 
 	return randomX;
 }
+
+function crateSpawnX() {
+	const xMax = canvas.width / 2 - 125;
+	const xMin = 10;
+
+	let randomX = Math.floor(Math.random() * (xMax - xMin + 1) + xMin);
+
+	return randomX;
+}
+
+// function assistSpawnX() {
+// 	const 
+// }
 
 const playerX = 10;
 const playerOneY = 450;
@@ -559,6 +590,19 @@ function spawnEnemyTD() {
 	giveIndex(enemyShellsArray);
 }
 
+// function spawnRepairCrate() {
+// 	pickups.push(new PickUp (repairPickup));
+// 	giveIndex(pickups);
+// }
+
+function spawnHalfTrack() {
+	assistVehicles.push(new AssistTruck());
+	giveIndex(assistVehicles);
+	assistVehicles.forEach(av => {
+		console.log(av.index);
+	})
+}
+
 // Function from YouTuber Lukas E. on their video: "Healthbar programming HTML5"
 // https://www.youtube.com/watch?v=fIXJrC4Yb8s
 function createHealthbar(x, y, width, height, health, maxHealth, text) {
@@ -591,12 +635,21 @@ function createHealthbar(x, y, width, height, health, maxHealth, text) {
 	}
 	c.fillRect(x+1, y + 1, (health/maxHealth)*(width - 2), height-2);
 }
-// function getDistance(x1, y1, x2, y2) {
+// function getDistance2(x1, y1, x2, y2) {
 // 	let xDist = x2 - x1;
 // 	let yDist = y2 - y1;
 
 // 	return Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
 // }
+function getDistance2(rect1, rect2) {
+	if (rect1.x < rect2.x + rect2.w &&
+	   rect1.x + rect1.w > rect2.x &&
+	   rect1.y < rect2.y + rect2.h &&
+	   rect1.y + rect1.h > rect2.y) {
+		
+		return true;
+	}
+}
 
 /*
 Possible Content for the future:
