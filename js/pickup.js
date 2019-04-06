@@ -15,10 +15,10 @@ function PickUp (/*supplyGiven, amountGiven,*/x, y, imgSrc) {
 	this.draw = function() {
 
 		renderTankImage(this.imgSrc, this.x, this.y);
-		createHealthbar(this.x, this.y - 25, this.w, 10, this.health, this.maxHealth, true);
-		c.lineWidth = 1.5;
-		c.strokeRect(this.x, this.y, this.w, this.h);
-		c.strokeStyle = "#FF0400FF";
+		createHealthbar(this.x, this.y - 25, this.w, 10, this.health, this.maxHealth, false);
+		// c.lineWidth = 1.5;
+		// c.strokeRect(this.x, this.y, this.w, this.h);
+		// c.strokeStyle = "#FF0400FF";
 
 		// pickups.forEach(pickup => {
 		// 	if(pickup.health <= 0) {
@@ -32,10 +32,10 @@ function PickUp (/*supplyGiven, amountGiven,*/x, y, imgSrc) {
 		players.forEach(player => {
 			pickups.forEach(pickup => {
 
-				if(getDistance2(pickup, player) || pickup.health <= 0) {
+				if(getDistance2(pickup, player)) {
 					console.log("You acquired the pickup!")
 
-					pickups.splice(pickup.index, 1);
+					pickups.splice(pickup.index, 1); // Deletes box from array when acquired
 					giveIndex(pickups);
 					player.health += Math.round((15 / 100) * player.maxHealth); // Heals for 15% of MaxHealth
 					if(player.health > player.maxHealth) {
@@ -43,6 +43,12 @@ function PickUp (/*supplyGiven, amountGiven,*/x, y, imgSrc) {
 					}
 				}
 			})
+		})
+		pickups.forEach(pickup => {
+			if(pickup.health <= 0) {
+				pickups.splice(pickup.index, 1);
+				giveIndex(pickups);
+			}
 		})
 		this.draw();
 	}
