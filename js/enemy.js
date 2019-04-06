@@ -62,7 +62,7 @@ function Enemy(dx, dy, w, h, img, type, reloadStatus, reloadCapped, shoot, rva, 
 		// Enemies wont shoot if they are off screen.
 		if(this.reloadStatus === this.reloadCapped && this.x + this.w < innerWidth && this.y) {
 			this.reloadStatus = 0; // sets the reload status to 0 so the reload process can start over.
-			if(!players.length == 0) {
+			if(!players.length == 0 || !assistVehicles.length == 0) {
 				this.shoot(this.shellsArray, this);
 			}
 		}
