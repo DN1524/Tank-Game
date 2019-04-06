@@ -1,6 +1,11 @@
 // Reminder: Try to put enemies.forEach() higher so you don't
 // 					 have to repeat it over and over. (Tried: Causes a bug where shell velocities sped up...)
 
+let assistTimer = 0;
+let assistTimerMax = 120;
+let assistChance = [0,0,0,0,0,0,0,0,0,1];
+let assistChanceNum;
+
 (function animate() {
 	requestAnimationFrame(animate);
 	
@@ -17,33 +22,48 @@
 
 	c.clearRect(0, 0, innerWidth, innerHeight);
 
+	if(assistTimer < assistTimerMax) {
+		assistTimer += 1;
+	}
+
+	if(assistTimer == assistTimerMax) {
+		assistChanceNum = assistChance[Math.floor(Math.random() * assistChance.length)];
+		console.log(assistChanceNum)
+		if(assistChanceNum === 1) {
+			spawnHalfTrack();
+		}
+		assistTimer = 0;
+	}
+
+	// console.log(assistTimer);
+
 
 	// // First attempt on making a level system... Will improve in the future.
-	// if(level == 1 && wave == 1 && enemies.length === 0 && players.length !== 0) {
-	// 	spawnEnemies(3, 0, 0);
-	// 	// wave += 1;
-	// 	nextWaveOrLevel();
-	// }
-	// if(level == 1 && wave == 2 && enemies.length === 0 && players.length !== 0) {
-	// 	spawnEnemies(2, 1, 0);
-	// 	// wave += 1;
-	// 	nextWaveOrLevel();
-	// }
-	// if(level == 1 && wave == 3 && enemies.length === 0 && players.length !== 0) {
-	// 	spawnEnemies(2, 2, 0);
-	// 	// wave += 1;
-	// 	nextWaveOrLevel();
-	// }
-	// if(level == 1 && wave == 4 && enemies.length === 0 && players.length !== 0) {
-	// 	spawnEnemies(2, 0, 1);
-	// 	// wave += 1;
-	// 	nextWaveOrLevel();
-	// }
-	// if(level == 1 && wave == 5 && enemies.length === 0 && players.length !== 0) {
-	// 	spawnEnemies(3, 1, 1);
-	// 	// wave += 1;
-	// 	nextWaveOrLevel();
-	// }
+	if(level == 1 && wave == 1 && enemies.length === 0 && players.length !== 0) {
+		spawnEnemies(3, 0, 0);
+		// wave += 1;
+		nextWaveOrLevel();
+	}
+	if(level == 1 && wave == 2 && enemies.length === 0 && players.length !== 0) {
+		spawnEnemies(3, 2, 0);
+		// wave += 1;
+		nextWaveOrLevel();
+	}
+	if(level == 1 && wave == 3 && enemies.length === 0 && players.length !== 0) {
+		spawnEnemies(2, 3, 0);
+		// wave += 1;
+		nextWaveOrLevel();
+	}
+	if(level == 1 && wave == 4 && enemies.length === 0 && players.length !== 0) {
+		spawnEnemies(3, 0, 1);
+		// wave += 1;
+		nextWaveOrLevel();
+	}
+	if(level == 1 && wave == 5 && enemies.length === 0 && players.length !== 0) {
+		spawnEnemies(3, 2, 1);
+		// wave += 1;
+		nextWaveOrLevel();
+	}
 	
 	for(let i = 0; i < players.length; i++) {
 		players[i].update();
